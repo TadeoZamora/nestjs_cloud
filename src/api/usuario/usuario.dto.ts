@@ -3,4 +3,5 @@ export interface Usuario{
     nombre : string;
     telefono : string;
     correo : string;
+    citas: [];
 }

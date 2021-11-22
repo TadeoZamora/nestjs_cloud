@@ -1,7 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { Cita } from '../cita/cita.entity';
+import { CupoDiario } from '../cupo_diario/cupo_diario.entity';
 @Entity()
-export class Usuario{
+export class TipoCita{
     
     // @ApiProperty() //swagger
     @PrimaryGeneratedColumn()
@@ -11,11 +12,11 @@ export class Usuario{
     nombre : string;
 
     @Column()
-    telefono : string;
-
-    @Column()
-    correo : string;
+    costo : number;
 
     @OneToMany(type => Cita, cita => cita.id)
     citas: Cita[];
+
+    @OneToMany(type => CupoDiario, cupoDiario => cupoDiario.id)
+    cupo_diario: CupoDiario[];
 }
